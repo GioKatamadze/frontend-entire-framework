@@ -1,7 +1,7 @@
 import React from "react";
 import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 import { ApolloProvider } from "@apollo/react-hooks";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar.js";
 import HomePage from "./pages/HomePage.js";
 import SubPage from "./pages/SubPage.js";
@@ -20,13 +20,14 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <Router>
+      <BrowserRouter>
         <Navbar />
         <Routes>
           <Route exact path="/" component={<HomePage />} />
           <Route path="/subpage/:id" component={SubPage} />
+          <Route exact path="*" component={<HomePage />} />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </ApolloProvider>
   );
 };
