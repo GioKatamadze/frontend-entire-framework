@@ -6,7 +6,7 @@ import Nav from "./styledNav.js";
 
 function Navbar() {
   const location = useLocation();
-  const [activeUrl, setActiveUrl] = useState("/");
+  const [activeUrl, setActiveUrl] = useState(location.pathname);
   const { loading, error, data } = useQuery(GET_MENU_ITEMS);
 
   const handleClick = (menuItem) => {
