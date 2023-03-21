@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <Menu />
       <Routes>
-        <Route path="/" component={<Menu />} />
         <Route path="/:subpage" component={SubPage} />
       </Routes>
     </div>
