@@ -1,10 +1,16 @@
 import React from "react";
-import Menu from "./menu.js";
+import { Routes, Route } from "react-router-dom";
+import Menu from "./components/menu.js";
+import SubPage from "./components/SubPage.js";
 
 function App() {
   return (
     <div className="App">
       <Menu />
+      <Routes>
+        <Route path="/" component={<Menu />} />
+        <Route path="/:subpage" component={SubPage} />
+      </Routes>
     </div>
   );
 }
